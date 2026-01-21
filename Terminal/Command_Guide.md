@@ -62,3 +62,6 @@ alembic revision --autogenerate -m "메시지"
 
 [DB 반영]
 alembic upgrade head
+
+[로컬 -> 서버 터널링 DB 접속]
+ssh -i "C:\Users\ssh\ssh-key-oracle.key" -L 5433:127.0.0.1:5433 ubuntu@168.107.52.201 -N

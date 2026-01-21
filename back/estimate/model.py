@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, Float
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from Back.core.database import Base
+from core.database import Base
 
 class EstimateRequest(Base):
     __tablename__ = "estimate_requests"

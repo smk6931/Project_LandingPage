@@ -17,4 +17,6 @@ pm2 start "npx vite --host 0.0.0.0 --port 5173" --name landing-front
 # 포트 열기
 sudo iptables -I INPUT -p tcp --dport 5173 -j ACCEPT
 sudo iptables -I INPUT -p tcp --dport 8001 -j ACCEPT
+sudo iptables -I INPUT -p tcp --dport 5433 -j ACCEPT
+
 sudo netfilter-persistent save

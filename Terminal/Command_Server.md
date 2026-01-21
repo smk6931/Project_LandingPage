@@ -1,6 +1,6 @@
 
 source venv/bin/activate
-ssh -i "C:\Users\addmin\ssh-key-oracle.key\ssh-key-oracle.key" ubuntu@168.107.52.201
+ssh -i "C:\Users\ssh\ssh-key-oracle.key" ubuntu@168.107.52.201
 cd Project_LandingPage
 
 # 백엔드

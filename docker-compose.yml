@@ -1,37 +1,29 @@
 version: '3.8'
 
 services:
-  ycfg_db:
-    container_name: YcFg_DB
-    image: ankane/pgvector:latest  # PostgreSQL 15+ 기반에 pgvector 설치된 이미지
+  landing_db:
+    container_name: landing-db
+    # 일반 postgres 이미지를 써도 되지만, 확장성(AI 기능 등)을 고려해 pgvector 유지 추천
+    # 또는 가볍게 가려면 'postgres:15' 사용 가능
+    image: ankane/pgvector:latest
     restart: always
     environment:
-      POSTGRES_USER: ycfg_user
-      POSTGRES_PASSWORD: ycfg_password
-      POSTGRES_DB: YcFg
+      POSTGRES_USER: landing_user
+      POSTGRES_PASSWORD: landing_password
+      POSTGRES_DB: landing_db
     ports:
+      # 외부 접속을 위해 5432 포트 개방
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      # 데이터 영구 보존을 위한 볼륨 설정
+      - ./postgres_data:/var/lib/postgresql/data
     networks:
-      - ycfg_network
-
-  # (선택사항) pgAdmin - DB 관리 도구
-  # pgadmin:
-  #   image: dpage/pgadmin4
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: admin@ycfg.com
-  #     PGADMIN_DEFAULT_PASSWORD: admin
-  #   ports:
-  #     - "5050:80"
-  #   networks:
-  #     - ycfg_network
-  #   depends_on:
-  #     - ycfg_db
+      - landing_network
 
 volumes:
   postgres_data:
 
+
 networks:
-  ycfg_network:
+  landing_network:
     driver: bridge

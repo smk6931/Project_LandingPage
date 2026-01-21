@@ -1,9 +1,10 @@
 fastapi
 uvicorn
 sqlalchemy
-alembic
-asyncpg>=0.29.0
+asyncpg
 python-dotenv
+alembic
 pydantic
-pydantic-settings
-greenlet
+pydantic[email]
+google-generativeai
+playwright

@@ -10,6 +10,7 @@ services:
     environment:
       POSTGRES_USER: landing_user
       POSTGRES_PASSWORD: "1234"
+                        # 안되면 쓸 것 = landing_password
       POSTGRES_DB: landing_db
     ports:
       # [보안 강화] 외부 접속 차단, 오직 localhost(127.0.0.1)에서만 접속 허용

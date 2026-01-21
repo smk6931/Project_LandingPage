@@ -19,4 +19,6 @@ sudo iptables -I INPUT -p tcp --dport 5173 -j ACCEPT
 sudo iptables -I INPUT -p tcp --dport 8001 -j ACCEPT
 sudo iptables -I INPUT -p tcp --dport 5433 -j ACCEPT
 
+sudo iptables -D INPUT -p tcp --dport 5433 -j ACCEPT
+
 sudo netfilter-persistent save
